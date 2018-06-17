@@ -15,13 +15,15 @@ function displayGifInfo() {
     url: queryURL,
     method: "GET"
   }).then(function(response) {
-    console.log(response);
+    //console.log(response);
+
+    for (var i = 0; i < response.data.length; i++) {
     // Creating a div to hold the gif
     var instrumentDiv = $("<div class='instrument'>");
 
     // Storing the rating data
-    var rating = response.data["0"].rating;
-    console.log(rating);
+    var rating = response.data[i].rating;
+    
 
     // Creating an element to have the rating displayed
     var pOne = $("<p>").text("Rating: " + rating);
@@ -30,7 +32,7 @@ function displayGifInfo() {
     instrumentDiv.prepend(pOne);
     
     //This is storing url for an image
-    var gifUrl = response.data[0].images.original.url;
+    var gifUrl = response.data[i].images.original.url;
 
     //This is storing and creating an img element
     var gifImage = $("<img>");
@@ -38,15 +40,14 @@ function displayGifInfo() {
     //These are adding a src attribute of the orgininal url and an alt attribute to our new img element
     gifImage.attr("src", gifUrl);
     gifImage.attr("alt", "instrument image");
-    console.log(gifImage);
+    //console.log(gifImage);
 
     //Appending gif
     instrumentDiv.append(gifImage);
 
     $("#gif-view").append(instrumentDiv);
+    }
 
-    // Putting the entire movie above the previous movies
-    //$("#gif-view").prepend(gifDiv);
   });
 
 }
