@@ -1,11 +1,11 @@
 
 
 // Initial array of gifs
-var instruments = ["Piano", "Harp", "Flute", "Trumpet","Saxaphone", "Clarinet", "Trombone", "Violin", "Snare Drum", "Guitar"];
+var instruments = ["Piano", "Banjo", "Flute", "Trumpet","Saxaphone", "Clarinet", "Trombone", "Violin", "Snare Drum", "Guitar"];
 
 // displayGigInfo function re-renders the HTML to display the appropriate content
 function displayGifInfo() {
-
+  $("#gif-view").empty();
   var instrument = $(this).attr("data-name");
   var queryURL = "https://api.giphy.com/v1/gifs/search?q="+instrument+"&api_key=KIF69K3SipGPTcN1F8j2Dr1AzUta309E&limit=10";
  
@@ -47,7 +47,7 @@ function displayGifInfo() {
 
     $("#gif-view").append(instrumentDiv);
     }
-
+    
   });
 
 }
@@ -56,6 +56,7 @@ function displayGifInfo() {
 function renderButtons() {
 
   // Deleting the movies prior to adding new movies
+ 
   // (this is necessary otherwise you will have repeat buttons)
   $("#buttons-view").empty();
 
