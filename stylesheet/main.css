@@ -1,0 +1,63 @@
+body, html  {
+  height: 100%;
+  margin: 0;
+}
+
+
+
+
+.bg {
+  background-image: url('iconSet.png');
+  height: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+}
+
+h1 {
+  background-color: goldenrod;
+  text-align: center;
+  border-radius: 8px;
+  padding-top: 10 px;
+  margin-top: 10px;
+}
+
+.gif-btn {
+  background-color: goldenrod; 
+    border: none;
+    color: black;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+label {
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+  padding-right: 5px;
+  border-radius: 8px;
+
+}
+
+input {
+  border-radius: 8px;
+  border: 2px solid black;
+}
+#add-gif {
+  border-radius: 8px;
+}
+
+#gif-view {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  padding: 5px;
+  
+}

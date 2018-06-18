@@ -34,7 +34,7 @@ function displayGifInfo() {
     //This is storing url for an image
     var gifUrl = response.data[i].images.fixed_height_still.url;
     //console.log(response.data[i].images.original.url)
-    var gifUrlAnimate = response.data[i].images.original.url;
+    var gifUrlAnimate = response.data[i].images.fixed_height.url;
     //This is storing and creating an img element
     var gifImage = $("<img>");
 
@@ -96,7 +96,9 @@ function renderButtons() {
     a.text(instruments[i]);
     // Adding the button to the buttons-view div
     $("#buttons-view").append(a);
+    
   }
+  
 }
 
 // This function handles events gif button is clicked
@@ -110,6 +112,7 @@ $("#add-gif").on("click", function(event) {
 
   // Calling renderButtons which handles the processing of our movie array
   renderButtons();
+  
 });
 
 // Adding a click event listener to all elements with a class of "gif-btn"
