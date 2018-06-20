@@ -1,10 +1,8 @@
-body, html  {
+body,
+html {
   height: 100%;
   margin: 0;
 }
-
-
-
 
 .bg {
   background-image: url('iconSet.png');
@@ -13,6 +11,7 @@ body, html  {
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
+  background-attachment: fixed;
 }
 
 h1 {
@@ -24,40 +23,24 @@ h1 {
 }
 
 .gif-btn {
-  background-color: goldenrod; 
-    border: none;
-    color: black;
-    padding: 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 8px;
-}
-
-label {
-  background-color: white;
+  background-color: goldenrod;
+  border: none;
   color: black;
-  border: 2px solid black;
-  padding-right: 5px;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
   border-radius: 8px;
-
 }
 
 input {
   border-radius: 8px;
   border: 2px solid black;
 }
+
 #add-gif {
   border-radius: 8px;
-}
-
-#gif-view {
-  display: inline-block;
-  width: 100px;
-  height: 100px;
-  padding: 5px;
-  
 }

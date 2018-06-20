@@ -1,61 +1,61 @@
 
 
 // Initial array of gifs
-var instruments = ["Piano", "Banjo", "Harmonica", "Trumpet","Saxaphone", "Clarinet", "Trombone", "Violin", "Snare Drum", "Guitar"];
+var instruments = ["Piano", "Banjo", "Harmonica", "Trumpet", "Saxaphone", "Clarinet", "Trombone", "Violin", "Snare Drum", "Guitar"];
 
 // displayGigInfo function re-renders the HTML to display the appropriate content
 function displayGifInfo() {
   $("#gif-view").empty();
   var instrument = $(this).attr("data-name");
-  var queryURL = "https://api.giphy.com/v1/gifs/search?q="+instrument+"&api_key=KIF69K3SipGPTcN1F8j2Dr1AzUta309E&limit=10";
- 
+  var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + instrument + "&api_key=KIF69K3SipGPTcN1F8j2Dr1AzUta309E&limit=10";
+
 
   // Creating an AJAX call for the specific gif button being clicked
   $.ajax({
     url: queryURL,
     method: "GET"
-  }).then(function(response) {
+  }).then(function (response) {
     console.log(response);
-   
+
     for (var i = 0; i < response.data.length; i++) {
-    // Creating a div to hold the gif
-    var instrumentDiv = $("<div class='instrument'>");
+      // Creating a div to hold the gif
+      var instrumentDiv = $("<div class='instrument'>");
 
-    // Storing the rating data
-    var rating = response.data[i].rating;
-    
+      // Storing the rating data
+      var rating = response.data[i].rating;
 
-    // Creating an element to have the rating displayed
-    var pOne = $("<p>").text("Rating: " + rating);
 
-    // Displaying the rating
-    instrumentDiv.prepend(pOne);
-    
-    //This is storing url for an image
-    var gifUrl = response.data[i].images.fixed_height_still.url;
-    //console.log(response.data[i].images.original.url)
-    var gifUrlAnimate = response.data[i].images.fixed_height.url;
-    //This is storing and creating an img element
-    var gifImage = $("<img>");
+      // Creating an element to have the rating displayed
+      var pOne = $("<p>").text("Rating: " + rating);
 
-    //These are adding a src attribute of the orgininal url and an alt attribute to our new img element
-    gifImage.attr("src", gifUrl);
-    gifImage.attr("data-still", gifUrl);
-    gifImage.attr("data-animate", gifUrlAnimate);
-    gifImage.attr("data-state", "still");
-    gifImage.addClass("gif");
-    //gifImage.attr("alt", "instrument image");
-    //console.log(gifImage);
+      // Displaying the rating
+      instrumentDiv.prepend(pOne);
 
-    //Appending gif
-    instrumentDiv.append(gifImage);
+      //This is storing url for an image
+      var gifUrl = response.data[i].images.fixed_height_still.url;
+      //console.log(response.data[i].images.original.url)
+      var gifUrlAnimate = response.data[i].images.fixed_height.url;
+      //This is storing and creating an img element
+      var gifImage = $("<img>");
 
-    $("#gif-view").append(instrumentDiv);
+      //These are adding a src attribute of the orgininal url and an alt attribute to our new img element
+      gifImage.attr("src", gifUrl);
+      gifImage.attr("data-still", gifUrl);
+      gifImage.attr("data-animate", gifUrlAnimate);
+      gifImage.attr("data-state", "still");
+      gifImage.addClass("gif");
+      //gifImage.attr("alt", "instrument image");
+      //console.log(gifImage);
 
-    
+      //Appending gif
+      instrumentDiv.append(gifImage);
+
+      $("#gif-view").append(instrumentDiv);
+
 
     }
-    $(".gif").on("click", function() {
+
+    $(".gif").on("click", function () {
       // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
       var state = $(this).attr("data-state");
       // If the clicked image's state is still, update its src attribute to what its data-animate value is.
@@ -75,10 +75,11 @@ function displayGifInfo() {
 
 
 
+
 // Function for displaying movie data
 function renderButtons() {
 
- 
+
   // (this is necessary otherwise you will have repeat buttons)
   $("#buttons-view").empty();
 
@@ -96,13 +97,13 @@ function renderButtons() {
     a.text(instruments[i]);
     // Adding the button to the buttons-view div
     $("#buttons-view").append(a);
-    
+
   }
-  
+
 }
 
 // This function handles events gif button is clicked
-$("#add-gif").on("click", function(event) {
+$("#add-gif").on("click", function (event) {
   event.preventDefault();
   // This line grabs the input from the textbox
   var instrument = $("#gif-input").val().trim();
@@ -112,7 +113,8 @@ $("#add-gif").on("click", function(event) {
 
   // Calling renderButtons which handles the processing of our movie array
   renderButtons();
-  
+  $("#gif-input").val("");
+
 });
 
 // Adding a click event listener to all elements with a class of "gif-btn"
